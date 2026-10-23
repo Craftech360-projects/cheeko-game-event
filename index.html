@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fff4e3" />
+    <meta
+      name="description"
+      content="Your game. Your moment. Save your Cheeko result, share the good vibes, and give your camera roll a little personality."
+    />
+    <title>Cheeko — Small game. Big flex.</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <a class="skip-link" href="#your-moment">Skip to your image</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="wordmark" href="./" aria-label="Cheeko home">
+          <img
+            class="brand-logo"
+            src="/logo.png"
+            alt="Cheeko AI"
+            width="1180"
+            height="453"
+          />
+        </a>
+        <div class="header-right">
+          <span class="header-tag"
+            ><span class="live-dot"></span> good vibes, on tap</span
+          >
+          <button class="help-trigger" data-open-help>
+            What's this? <span data-icon="ArrowUpRight"></span>
+          </button>
+          <a
+            class="header-instagram icon-button"
+            data-instagram
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Instagram in a new tab"
+            ><span data-icon="Instagram"></span
+          ></a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <div class="eyebrow">
+              <span class="little-spark" aria-hidden="true">✦</span> THE
+              POST-GAME GLOW
+            </div>
+            <h1 id="hero-title">
+              <span class="headline-line">Small game.</span
+              ><span class="headline-accent">Big flex.</span
+              ><span class="headline-star" aria-hidden="true">✳</span>
+            </h1>
+            <p class="hero-description">
+              You did the thing. Now save the proof.<span
+                class="supporting-copy"
+                ><br />Your Cheeko moment is ready for its close-up.</span
+              >
+            </p>
+            <div class="hero-personality" aria-hidden="true">
+              <div class="smile-sticker">
+                <span class="sticker-eyes"><i></i><i></i></span
+                ><span class="sticker-smile"></span>
+              </div>
+              <span class="handwritten"
+                >a little win.<br />a lot of personality.</span
+              >
+              <span class="personality-arrow" data-icon="MoveUpRight"></span>
+            </div>
+            <div class="desktop-instructions">
+              <span class="mini-number">01</span> save it
+              <span class="step-line"></span
+              ><span class="mini-number">02</span> share it
+              <span class="step-line"></span
+              ><span class="mini-number">03</span> own it
+            </div>
+          </div>
+
+          <div class="result-zone" id="your-moment">
+            <div class="result-label" data-connection="live">
+              <span class="live-dot"></span
+              ><span id="connection-label">LIVE FROM THE GAME</span
+              ><span class="result-label-spark" aria-hidden="true">✦</span>
+            </div>
+            <div class="result-card">
+              <div class="card-topline">
+                <span
+                  ><span data-icon="Camera"></span> straight from cheeko</span
+                >
+                <button
+                  class="love-button icon-button"
+                  id="love-button"
+                  aria-label="Love this image"
+                  aria-pressed="false"
+                  disabled
+                >
+                  <span data-icon="Heart"></span>
+                </button>
+              </div>
+              <div class="image-stage" id="image-stage" aria-busy="true">
+                <img
+                  id="result-image"
+                  alt="Your Cheeko game result"
+                  hidden
+                  decoding="async"
+                  fetchpriority="high"
+                />
+                <div
+                  class="image-state"
+                  id="image-state"
+                  role="status"
+                  aria-live="polite"
+                >
+                  <span class="state-icon" data-icon="Sparkles"></span>
+                  <strong id="state-title">Fetching the good stuff…</strong>
+                  <p id="state-description">Your moment is on its way.</p>
+                  <button id="retry-button" class="button button-small" hidden>
+                    <span data-icon="RotateCw"></span> Try again
+                  </button>
+                </div>
+                <button
+                  class="expand-button icon-button"
+                  id="expand-button"
+                  aria-label="View full-size image"
+                  hidden
+                >
+                  <span data-icon="Expand"></span>
+                </button>
+                <div
+                  class="image-confetti"
+                  id="image-confetti"
+                  aria-hidden="true"
+                ></div>
+              </div>
+              <div class="card-caption">
+                <span>Certified main character.</span
+                ><span class="caption-stars" aria-hidden="true">✦ ✦ ✦</span>
+              </div>
+            </div>
+
+            <div class="result-actions" aria-label="Image actions">
+              <a
+                class="button instagram-button share-button"
+                id="share-button"
+                data-instagram
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Share my moment on Instagram (opens in a new tab)"
+                aria-disabled="true"
+                tabindex="-1"
+                ><span data-icon="Instagram"></span><span>Share my moment</span
+                ><span data-icon="ArrowUpRight"></span
+              ></a>
+              <button
+                class="download-button icon-button"
+                id="download-button"
+                aria-label="Save image"
+                title="Save image"
+                disabled
+              >
+                <span data-icon="Download"></span
+                ><span class="visually-hidden" id="download-label"
+                  >Save image</span
+                >
+              </button>
+            </div>
+            <p class="action-note">Save it. Post it. Casually act surprised.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden>
+      <span data-icon="Check"></span><span id="toast-message"></span>
+    </div>
+    <dialog class="help-dialog" id="help-dialog" aria-labelledby="help-title">
+      <button
+        class="dialog-close icon-button"
+        data-close-help
+        aria-label="Close instructions"
+      >
+        <span data-icon="X"></span>
+      </button>
+      <span class="dialog-spark" aria-hidden="true">✳</span>
+      <h2 id="help-title">A moment worth keeping.</h2>
+      <p>
+        Your latest Cheeko result appears automatically. Here's what happens
+        next:
+      </p>
+      <ol class="help-steps">
+        <li>
+          <span>01</span>
+          <div>
+            <strong>Save your moment</strong>
+            <p>
+              Tap the save button to download the original image currently on
+              screen.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span>02</span>
+          <div>
+            <strong>Give it a little airtime</strong>
+            <p>
+              Tap Share my moment to open Instagram and add your saved image to
+              a story or post.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span>03</span>
+          <div>
+            <strong>Keep the good stuff coming</strong>
+            <p>
+              New results appear here automatically. Come back for your next
+              moment.
+            </p>
+          </div>
+        </li>
+      </ol>
+      <button class="button dialog-done" data-close-help>
+        Got it. Let's flex. <span data-icon="ArrowRight"></span>
+      </button>
+    </dialog>
+    <dialog class="lightbox" id="lightbox" aria-label="Full-size Cheeko image">
+      <button
+        class="lightbox-close icon-button"
+        id="close-lightbox"
+        aria-label="Close full-size image"
+      >
+        <span data-icon="X"></span></button
+      ><img id="lightbox-image" alt="Your full-size Cheeko game result" />
+    </dialog>
+    <noscript
+      ><div class="noscript-message">
+        Please enable JavaScript to load your Cheeko image.
+      </div></noscript
+    >
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
