@@ -18,7 +18,6 @@ The supplied project URL and public anon key are already configured in the ignor
 ```dotenv
 VITE_SUPABASE_URL=https://your-project.supabase.co
 VITE_SUPABASE_ANON_KEY=your-publishable-or-anon-key
-VITE_INSTAGRAM_URL=https://www.instagram.com/your-account/
 ```
 
 Only public publishable or legacy anon keys belong in these variables. Vite embeds `VITE_` values into the browser bundle. The page does not require a service-role key, database password, sign-in, or a server.
@@ -31,7 +30,7 @@ Only public publishable or legacy anon keys belong in these variables. Vite embe
 - Preloads a replacement before switching, keeping the previous image usable during downloads and temporary connection failures.
 - Handles an empty table, a slow connection, failed image loads and automatic recovery without requiring a browser refresh.
 - Downloads the **original image bytes**, retaining the image format. If a third-party image host blocks browser downloads, the full image opens for manual saving.
-- The animated **Share my moment** button opens the configured Instagram profile, or Instagram home by default. A compact download icon saves the image first. The visitor adds the saved image to a post or story in Instagram.
+- The animated **Share my moment** button opens the supplied Cheeko Instagram post. The header Instagram icon opens the Cheeko AI profile and is visible on mobile. These destinations are defined independently in `index.html`. A compact download icon saves the current result image.
 - Love reactions are saved only in that browser. No data is written to Supabase.
 
 ## Supabase configuration
@@ -58,9 +57,9 @@ For a Git-connected host such as Netlify, Vercel, or Cloudflare Pages:
 | Build command | `npm run build` |
 | Output directory | `dist` |
 | Node version | 20.19+ or 22.12+ |
-| Environment variables | The three `VITE_` variables above |
+| Environment variables | The two `VITE_` variables above |
 
-Set environment variables **before building**. A locally built `dist/` already contains the configuration from `.env.local`. Rebuild when changing the project, API key, or Instagram account. For hosting under a subdirectory, run `npm run build -- --base=/your-subdirectory/`.
+Set environment variables **before building**. A locally built `dist/` already contains the configuration from `.env.local`. Rebuild when changing the project, API key, or Instagram links. For hosting under a subdirectory, run `npm run build -- --base=/your-subdirectory/`.
 
 ## Verification
 

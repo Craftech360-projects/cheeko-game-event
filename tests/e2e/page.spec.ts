@@ -179,7 +179,12 @@ test("downloads the original, reacts, opens the image and shows instructions", a
   await expect(page.locator("#help-dialog")).not.toBeVisible();
   await expect(page.locator(".instagram-button")).toHaveAttribute(
     "href",
-    "https://www.instagram.com/",
+    "https://www.instagram.com/p/De3gC5_JZ7S/?obrf=cmxybjI3cmgwbTcz",
+  );
+  await expect(page.locator(".header-instagram")).toBeVisible();
+  await expect(page.locator(".header-instagram")).toHaveAttribute(
+    "href",
+    "https://www.instagram.com/cheekoai?dlrf=dHJ3ZWZ4OXY2eXF1",
   );
 });
 

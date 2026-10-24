@@ -73,28 +73,6 @@ let pendingImageKey: string | null = null;
 let loadVersion = 0;
 let toastTimer: ReturnType<typeof setTimeout>;
 
-const instagramUrl = (() => {
-  try {
-    const url = new URL(
-      import.meta.env.VITE_INSTAGRAM_URL || "https://www.instagram.com/",
-    );
-    if (
-      url.protocol === "https:" &&
-      (url.hostname === "instagram.com" ||
-        url.hostname.endsWith(".instagram.com"))
-    )
-      return url.href;
-  } catch {
-    /* Use Instagram home if the optional profile is invalid. */
-  }
-  return "https://www.instagram.com/";
-})();
-document
-  .querySelectorAll<HTMLAnchorElement>("[data-instagram]")
-  .forEach((link) => {
-    link.href = instagramUrl;
-  });
-
 function notify(message: string) {
   clearTimeout(toastTimer);
   element<HTMLSpanElement>("toast-message").textContent = message;
